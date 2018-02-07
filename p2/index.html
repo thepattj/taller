@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="estilo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <nav>
+        <button>=</button>
+    </nav>
+    <div class="nueva-nota">
+        <div class="nota-color"></div>
+        <div class="nota-contenido">
+            <button onclick="addNota()"> Agregar Nota....</button>
+        </div>
+    </div>
+    <!--FORMULARIO DE NOTA NUEVA-->
+    <div class="agregar-nota">
+        <input type="color" id="color">
+        <input type="text" placeholder="Titulo" id="titulo">
+        <textarea placeholder="este es el contenido de la nota" id="contenido"></textarea>
+        <button onclick="guardarNota()">Agregar</button>
+    </div>
+    
+    <div class="nota">
+        <div class="nota-color";></div>
+        <div class="nota-contenido">
+            <h1>esta es una nota</h1>
+            <p>Este es el contenido de esta nota, no estan largo</p>
+        </div>
+        <div class="nota-ver"></div>
+    </div>
+    
+    <div class="menu">
+        
+    </div>
+</body>
+    <script>
+        function addNota(){
+            document.querySelector('.nueva-nota').style.transition=".2s all";
+            document.querySelector('.nueva-nota').style.height="40px";
+            document.querySelector('.agregar-nota').style.height="200px";
+            document.querySelector('.agregar-nota').style.transition=".2s all";
+            document.querySelector('.agregar-nota').style.opacity="1";
+        }
+        
+        function guardarNota(){
+            color=document.getElementById('color').value;
+            titulo=document.getElementById('titulo').value;
+            nota=document.getElementById('contenido').value;
+            
+            if(localStorage.getItem('contador')){
+                //verificaion de si hay otra nota
+                notaCompleta=color+"|"+titulo+"|"+nota;
+                contador=localStorage.getItem('contador');
+                contador++;
+                //se guarda con la posicion del contador
+                localStorage.setItem('nota'+contador,notaCompleta);
+                localStorage.setItem('contador',contador)
+            }else{
+                //si no hay notas se inicia uno
+                localStorage.setItem("contador","0");
+                notaCompleta=color+"|"+titulo+"|"+nota;
+                contador=localStorage.getItem('contador');
+                //se guarda con la posicion del contador
+                localStorage.setItem('nota'+contador,notaCompleta);
+            }
+            document.querySelector('.nueva-nota').style.transition=".2s all";
+            document.querySelector('.nueva-nota').style.height="100";
+            document.querySelector('.agregar-nota').style.height="0px";
+            document.querySelector('.agregar-nota').style.transition=".2s all";
+            document.querySelector('.agregar-nota').style.opacity="0";
+            document.getElementById('color').value="#000000";
+            document.getElementById('titulo').value="";
+            document.getElementById('contenido').value="";
+        }
+    </script>
+</html>

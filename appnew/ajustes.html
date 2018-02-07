@@ -1,0 +1,39 @@
+<htm>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script src="funciones.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+</head>
+    
+<body>
+    
+    <div class="alerta">
+        <h1 id="alerta-titulo">Relleno</h1>
+        <p id="alerta-mensaje">Este es un texto de Relleno.</p>
+    </div>
+    
+    <nav class="ajustes-nav">
+        <img src="atras.png" onclick="navegar('index')">
+        Ajustes
+    </nav>
+    
+    <section>
+        <h2>Personal</h2>
+        <input type="text" placeholder="Nombre" id="n">
+        <input type="text" placeholder="Correo" id="c">
+        <input type="date" placeholder="Fecha de Nacimiento" id="f">
+        <input type="number" placeholder="Peso (Kg)" id="p">
+        <input type="number" placeholder="Estatura (Mts)" id="e">
+        <button onclick="guardarPersonales()">Guardar</button>
+    </section>
+    
+<script>
+    window.addEventListener('load',cargarPersonales,true);
+</script>
+    
+</body>
+
+</htm>

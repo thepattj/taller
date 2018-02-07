@@ -1,0 +1,65 @@
+<htm>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script src="funciones.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+</head>
+    
+<body>
+    
+    <div class="alerta">
+        <h1 id="alerta-titulo">Relleno</h1>
+        <p id="alerta-mensaje">Este es un texto de Relleno.</p>
+    </div>
+    
+    <nav class="ajustes-nav">
+        <img src="atras.png" onclick="navegar('index')">
+        Alimentos
+    </nav>
+    
+    <section>
+        <h2>Calorias de Hoy</h2>
+        <div class="calorias"></div>
+        
+        <h2>Lista Rápida</h2>
+        <div id="comidas">
+
+        </div>
+        
+        <div class="agregar-comida">
+            <div class="comida-icono">
+                <select id="tipo-comida">
+                    <option selected>...</option>
+                    <option>Desayuno</option>
+                    <option>Comida</option>
+                    <option>Cena</option>
+                    <option>Postre</option>
+                    <option>Chatarra</option>
+                    <option>Bebida</option>
+                </select>
+            </div>
+            <div class="comida-nombre">
+                <input type="text" placeholder="Nombre..." id="nuevo-nombre">
+                <input type="text" placeholder="Calorias..." id="nuevo-calorias">
+            </div>
+            <div class="comida-boton">
+                <button onclick="guardarComida()">V</button>
+            </div>
+        </div>
+        
+        <div class="comida-nueva" onclick="verAgregarComida()">
+            <b>+</b>Agregar comida
+        </div>
+        
+    </section>
+    
+<script>
+    window.addEventListener('load',cargarAlimentos,true);
+</script>
+    
+</body>
+
+</htm>

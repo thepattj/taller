@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <nav>
+            <button class="btn-menu">=</button>
+            <h1>app de prueba</h1>
+        </nav>
+        <section>
+            <h1>Estilo CSS</h1>
+            <p>las aplicaciones se dividen en tres capas: la de estructura y cotnenido (HTML), la capa visual(CSS) y la capa funcional (JS). La capavisual es la que se encarga de acomodar, colorear, agrupar y formatear lso distintos elementos de HTML, sin ella los contenedores no tiene absolutamente ninguna funcionalidad, mas que la de agrupar contenidos. Este lenguaje (Cascade Style Sheet) se puede escribir dentro de las etiquetas, dentro del documento(en el bloque de etiquetas STYLE) o en un documento externo (.CSS). Cada unad e estas formas tien un ambito y orden de importancia diferente.</p>
+            <p>Por ejemplo, cuando escribimos dentro de una etiqueta los estilos a traves del artibuto STYLE, el alcance que tiene es el minimo, ya que solo modifica a esa etiqueta en espeficio, en cambio, tiene la importancia mas alta (o la ultima palabra). cuando escribimos CSS dentro de un bloque de etiquetas STYLE se vuelve su alcance un poco mas grande, ya que afecta a todoas las etiquetas que se modifican en ese documento, y tiene un nivel de importancia media. El ultimo es por medio de un documento por separado, es es la manera ideal de escribir CSS, ya que podemos afectar a N cantidad de paginas al mismo tiempo desde el mismo documento</p>
+            <p>la Sintaxis de CSS es bastante sencilla. Primero que nada, necesitamos establecer un "SELECTOR". Los selectores son los que inidican que elemento se va a seleccionar para que sus propiedades sean modificacas. Existen tres tipos de selectores: los de etiqueta, identificador y clases. Los selectores de etiqueta modifican a todas las etiquetas que coincidan con el selector.</p>
+            <p class="codigo">
+                //SELECTOR DE ETIQUETA<br>
+                <b class="selector">p</b><b class="llave">{</b><br>
+                color:<b class="valor">red;</b><br>
+                <b class="llave">}</b>
+            </p>
+            <p>Como se puede apreciar en el codigo anterior, la estructura de un bloque de CSS es la siguiente:
+            comenzamos por el selector, abrimos las llaves, dentro de ellas colocamos la propiedad que se modificara segida de dos puntos(:) y posteriormente el nuevo valor. Todas las lineas de CSS terminan con punto y coma (;).</p>
+            
+            <p>Los otros dos selectores (ID y CLASS) funcionan por medio de atributos con el mismo nombre. Los ID tiene la caracteristica de que deberia de ser unicos por pagina, cuando escribimos este selector en CSS debemos colocar el signo (#) antes del nombre del ID. Las clases tiene diferentes caracterisiticas, comenzando por que el atributo que se coloca es el atributo CLASS, estas pueden repetirse la cantidad de veces que sea necesario en un documento, tambien pueden ser acumulablres, es decir que un elemento puede tener mas de una clases (separada por espacios). Podriamos definir las clases como las "caracteristicas" de un elemento. Las clases comienzan con un punto(.)</p>
+            
+            <p class="codigo">
+               <b class="selector"> #identificador</b><b class="llave">{</b><br>
+                    propiedad:<b class="valor">valor;</b><br>
+                <b class="llave">}</b><br><br>
+                <b class="selector">.clase</b><b class="llave">{</b><br>
+                propiedad:<b class="valor">valor;</b><br>
+                <b class="llave">}</b>
+            </p>
+            
+            <p>Existen diferentes tipos de propiedades de CSS, todas tienen un significado en ingles y son bastante descriptivas. Existen algunas propiedades en especifico que puden ser generales y especificas, por ejemplo el margen(MARGIN) que podemos colocar en una sola propiedad o alguna mas especifica(MARGIN-LEFTT)</p>
+        </section>
+        
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            nav{
+                width: 100%;
+                height: 50px;
+                /*background-color: #008;*/
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: -webkit-linear-gradient(45deg,#0080FF,#800080);
+            }
+            body{
+                background-color: rgba(0,0,0,.15);
+            }
+            section{
+                border-radius: 5px;
+                /*TIPOS DE BORDER, doble, punteado, lineado, doble linea*/
+                border: 1px solid rgba(0,0,0,.3);
+                /*offset-x, offset-y, difuminado, grosor, color*/
+                box-shadow: 0px 5px 5px 0px red;
+                margin-bottom: 40px;
+                width: 90%;
+                margin-left: 5%;
+                margin-right: 5%;
+                margin-top: 70px;
+                background-color: white;
+            }
+            p{
+                font-size: 1em;
+                margin: 10px;
+                font-family: 'Segoe UI', 'Arial', sans-serif;
+                text-align: justify;
+            }
+            
+            .codigo{
+                width: 80%;
+                margin-left: 10%;
+                border-radius: 10px;
+                background-color:#1D1F21;
+                font-family: consolas,monospace;
+                padding: 10px;
+                box-sizing: border-box; /*ABSORCION DEL PADDING PARA QUE NO SE PUEDA MOVER DE CADA LADO SINO QUE PUEDA TENER UN LIMITE PARA CONSIDERAR EL PADDING*/
+                color: #6AFF6A;
+            }
+            
+            /*MODIFICADOR DE SELECTORES*/
+            
+            /*el modificador solo le habla al que esta debajo del padre*/
+            /*padre -> hijo*/
+            .codigo>.selector{
+                color:#FE6BF3;
+                font-weight: bold;
+            }
+            .codigo>.llave{
+                color:white;
+                font-weight: normal;
+            }
+            .codigo>.valor{
+                color: #FEE86B;
+            }
+            
+            section>h1{
+                text-align: center;
+                font-size: 3em;
+                font-family: 'Segoe UI';
+                color: rgba(0,0,0,.8);                    
+                font-weight: normal;
+            }
+            nav>h1{
+                line-height: 50px; /*hace un interlineado o centrado vertical de los renglones de textos.*/
+                text-align: center;
+                color: white;
+                font-weight: normal;
+                font-family: 'Segoe UI';
+            }
+            .btn-menu{
+                width: 50px;
+                height: 50px;
+                background-color: rgba(255,255,255,.2);
+                border: none;
+                outline: none;
+                font-size: 3em;
+                position: absolute;
+                color: white;
+                transition: .2s all;
+            }
+            .btn-menu:active{
+                opacity: .9;
+                font-size: 2.6em;
+                border:1px solid #800080;
+            }
+        </style>
+    </body>
+</html>

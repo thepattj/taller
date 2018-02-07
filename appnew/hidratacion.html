@@ -1,0 +1,55 @@
+<htm>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script src="funciones.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+</head>
+<body>    
+    <nav>
+        <img src="atras.png" onclick="navegar('index')">
+         Hidratacion
+    </nav>
+    <section>
+        <div id="vaso">
+                <div class="agua"></div>
+        </div>
+        <div id="agregar-vaso" onclick="agregarVaso()">
+            <img src="vaso.png">
+        </div>
+        <div id="popup">
+            <h1> Introduce tu peso (Kg): </h1>
+            <input type="number" id="peso" min="10">
+            <button onclick="guardarPeso()">Aceptar</button>
+        </div>
+    </section>
+<script>
+window.addEventListener('load',cargarVasos,true);
+    function cargarVasos(){
+        if(localStorage.getItem('topActual')){
+            topActual.localStorage.getItem('topActual');
+        }else{
+            topActual=100;
+        }
+
+        document.getElementById('agua').style.top=topActual+"%";
+
+        if(localStorage.getItem('peso')){
+            document.getElementById('popup').style.display="none";
+            //DIBUJAR RAYAS
+        vaso=document.getElementById('vaso');
+        vasos=localStorage.getItem('vasos');
+        i=0;
+        while(i<vasos){
+            vaso.innerHTML += "<div class='rayas' style='height:"+alturaVaso+"%'></div>";
+            i++;
+        }
+
+        }
+    }
+</script>
+</body>
+
+</htm>
